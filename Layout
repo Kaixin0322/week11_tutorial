@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data visualization2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fondamento&family=Open+Sans&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #fff8ec;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: #f0ffff;
+            padding: 20px;
+            text-emphasis-color: #d2d4d4;
+            border-radius: 15px;
+            color: rgb(95, 95, 103);
+        }
+
+        h1, h2, h3, p {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #newVis, #lineChart, #pieChart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .divider {
+            height: 2px;
+            background-color: #d2d4d4;
+            margin: 20px 0;
+        }
+
+        .New_south_wales_text {
+            color: rgb(254, 140, 0);
+        }
+
+        .Victoria {
+            color: rgb(224, 215, 204);
+        }
+
+        .Sydney {
+            color: rgb(151, 225, 148);
+        }
+
+        .Melbourne {
+            color: rgb(224, 102, 102);
+        }
+
+        h2 {
+            font-family: 'Open Sans';
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 20px;">
+            Australian house price trends and forecasts for the last decade (Melbourne)</h1>
+        <p>
+            As the Australian real estate market continues to evolve, it becomes particularly important to understand its
+            historical trends and current conditions. This visualization aims to shed light on house price changes in
+            Australia, and Melbourne in particular, over the past decade, and the demographic and geographic factors
+            associated with them. By analyzing population distribution, house price trends, house type share and geographic
+            location together, investors, real estate developers and ordinary consumers can make decisions and strategies
+            with greater clarity. Whether you are looking for an investment opportunity, considering a home purchase, or
+            simply want to understand the dynamics of the market, this data can serve as a reference point.</p>
+        
+        <div class="divider"></div> <!-- Added divider line above the map title -->
+        
+        <h3>Population distribution of Australian capital cities in 2021</h3>
+        <div id="newVis">
+            <script>
+                vegaEmbed("#newVis", "https://raw.githubusercontent.com/Kaixin0322/week10-homework/main/map_visualization.json", { mode: "vega-lite", width: 900, height: 400 }).then(console.log).catch(console.warn);
+            </script>
+        </div>
+
+        <h2>Distribution of population size by Australian provincial capitals</h2>
+        <p>According to the map it can be seen that the state with the highest population is <span
+            class='New_south_wales_text'> New south Wales </span>
+        followed by <span class='Victoria'> Victoria </span>. The majority of the population is located along the south
+        east coast of Australia. The
+        capital cities of these two states are <span class='Sydney'> Sydney </span> and <span
+            class='Melbourne'>Melbourne</span> respectively. Therefore, based on the map of
+        population distribution it is concluded that the demand for housing is higher in the cities of <span
+            class='Melbourne'> Melbourne </span> and
+        <span class='Sydney'>Sydney</span>. Therefore we focus on analyzing these two locations.</p>
+        
+        <div class="divider"></div> <!-- Divider line below the text -->
+
+        <!-- Line Chart -->
+        <h3>House Price Trends (2011-2021)</h3>
+        <div id="lineChart">
+            <script>
+                vegaEmbed("#lineChart", "https://raw.githubusercontent.com/Kaixin0322/week10-homework/main/bar_property_price.vg.json", { mode: "vega-lite", width: 900, height: 400 }).then(console.log).catch(console.warn);
+            </script>
+        </div>
+
+        <!-- Explanation for the Line Chart -->
+        <p>According to the map it can be seen that the state with the highest population is <span
+            class='New_south_wales_text'> New south Wales </span>
+        followed by <span class='Victoria'> Victoria </span>. The majority of the population is located along the south
+        east coast of Australia. The
+        capital cities of these two states are <span class='Sydney'> Sydney </span> and <span
+            class='Melbourne'>Melbourne</span> respectively. Therefore, based on the map of
+        population distribution it is concluded that the demand for housing is higher in the cities of <span
+            class='Melbourne'> Melbourne </span> and
+        <span class='Sydney'>Sydney</span>. Therefore we focus on analyzing these two locations.</p>
+
+        <div class="divider"></div> <!-- Divider line above the pie chart -->
+
+        <!-- Pie Chart -->
+        <h3>Percentage of House Types</h3>
+        <div id="pieChart">
+            <script>
+                vegaEmbed("#pieChart", "https://raw.githubusercontent.com/Kaixin0322/pie_chart/main/pie.json", { mode: "vega-lite", width: 800, height: 400 }).then(console.log).catch(console.warn);
+            </script>
+        </div>
+        
+        <!-- Explanation for the Pie Chart -->
+        <p>The 2022 Melbourne Property Type Share pie chart shows that detached homes dominate the market at around 65%, indicating that Melbourne is still dominated by traditional forms of housing. Apartments account for around 22.5% of the market, reflecting the continued popularity of the urban lifestyle, particularly in the city center. In addition, townhouses and other dwelling types account for around 15%, providing some diversity and choice. This suggests that Melbourne's housing market is diversified and meets the housing needs of a range of people, from traditional family-oriented homes to urban lifestyle apartments. This trend may be influenced by urban growth, population movements and lifestyle choices.</p>
+
+    </div>
+</body>
+
+</html>
